@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>𝐑𝐀𝐉𝐀𝐍 𝐁𝐇𝐀𝐈 ❤(( 𝐒𝐀𝐓𝐓𝐀 𝐊𝐈𝐍𝐆 ))</title>
 
-    <!-- ========================================== -->
-    <!-- 1. META PIXEL & TRACKING CODE (START) -->
-    <!-- ========================================== -->
     <script>
       !function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -25,10 +22,6 @@
       <img height="1" width="1" style="display:none"
            src="https://www.facebook.com/tr?id=1661441335545144&ev=PageView&noscript=1"/>
     </noscript>
-    <!-- ========================================== -->
-    <!-- META PIXEL CODE (END) -->
-    <!-- ========================================== -->
-
     <style>
         * {
             margin: 0;
@@ -174,40 +167,33 @@
 <body>
 
     <div class="landing-container">
-        <!-- Top Bar -->
         <div class="top-bar">
             
         </div>
 
-        <!-- Center Image Box -->
         <div class="profile-section">
             <div class="profile-img-box">
                 <img src="profile.png" alt="Profile Image">
             </div>
         </div>
 
-        <!-- Main Heading -->
         <div class="main-title">
             👑 बाज़ीगर भाई 
- ❤(( 𝐒𝐀𝐓𝐓𝐀 𝐊𝐈𝐍𝐆 ))
+❤(( 𝐒𝐀𝐓𝐓𝐀 𝐊𝐈𝐍𝐆 ))
         </div>
 
-        <!-- Description Text -->
         <div class="sub-description">
             डेली सिंगल जोड़ी रोजाना आपको इस टेलीग्राम पर फ्री मिलेगी ख़बर सबसे पहले मिलेगी टेलीग्राम चैनल ज्वाइन करो गेम मिलेंगे 👑
         </div>
 
-        <!-- Tagline -->
         <div class="tagline">
             ⚡ ALL MATKA GAMES AVAILABLE ⚡ Best Expert
         </div>
 
-        <!-- Users Joined -->
         <div class="users-count">
             👥 40k+ users joined
         </div>
 
-        <!-- Info Boxes -->
         <div class="info-box">
             🤝 💎फरीदाबाद, गाजियाबाद 💎
         </div>
@@ -220,27 +206,32 @@
             📚 1001% FIX GAME MILEGA
         </div>
 
-        <!-- Redirecting Timer Text -->
         <div class="redirect-text">
             Redirecting in <span id="timer">10</span>...
         </div>
 
-        <!-- Bottom Join Button -->
         <a id="telegramLink" href="https://t.me/+1j1aXN8dX5RhNzA1" class="join-btn" onclick="trackButtonClick()">
             JOIN TELEGRAM CHANNEL
         </a>
     </div>
 
-    <!-- 20-Second Timer, Auto Redirect & Meta Event Tracking Script -->
     <script>
         let telegramUrl = "https://t.me/+1j1aXN8dX5RhNzA1"; 
 
         document.getElementById("telegramLink").href = telegramUrl;
 
+        // क्लिक को केवल एक बार ट्रैक करने के लिए Flag Variable
+        let isClicked = false; 
+
         function trackButtonClick() {
-            if(typeof fbq !== 'undefined') {
-                fbq('trackCustom', 'TelegramBtnClick');
-                fbq('track', 'Subscribe');
+            // अगर यूजर ने पहली बार क्लिक किया है तभी पिक्सल फायर होगा
+            if (!isClicked) {
+                isClicked = true; 
+                
+                if(typeof fbq !== 'undefined') {
+                    fbq('trackCustom', 'TelegramBtnClick');
+                    fbq('track', 'Subscribe');
+                }
             }
         }
 
@@ -254,7 +245,8 @@
             if (timeLeft <= 0) {
                 clearInterval(countdown);
                 
-                if(typeof fbq !== 'undefined') {
+                // अगर यूजर ने बटन नहीं दबाया है, तभी ऑटो-रीडायरेक्ट पिक्सल फायर होगा
+                if (!isClicked && typeof fbq !== 'undefined') {
                     fbq('trackCustom', 'AutoRedirect');
                 }
 
